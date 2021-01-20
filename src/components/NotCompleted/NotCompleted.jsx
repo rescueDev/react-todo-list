@@ -7,8 +7,11 @@ import classes from './NotCompleted.module.css'
     // console.log(tasks);
 
     if(tasks.notCompleted.length < 1){
-      return 'No pending tasks'
-  }
+      return (
+          <div className={classes.notask}>
+                No pending tasks
+          </div> 
+      )}
  let todo = null;
  todo = (
   <div className={classes.container} >
@@ -18,6 +21,7 @@ import classes from './NotCompleted.module.css'
 
           <h4 >
               {task}
+           
                 </h4>
                 <div className={classes.icons}>
 
