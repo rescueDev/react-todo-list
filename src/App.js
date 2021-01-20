@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import AllTasks from "./components/AllTasks/AllTasks";
 import InputTodo from "./components/InputTodo/InputTodo";
 import NotCompleted from "./components/NotCompleted/NotCompleted";
+import "./App.css";
+import Completed from "./components/Completed/Completed";
+import { FaCheck } from "react-icons/fa";
+import { MdDns } from "react-icons/md";
 
 class App extends Component {
   state = {
@@ -32,7 +37,7 @@ class App extends Component {
   render() {
     const { tasks } = this.state;
     return (
-      <div>
+      <div className="App">
         <h1>Todo List React</h1>
         <InputTodo
           value={this.state.input}
@@ -40,6 +45,7 @@ class App extends Component {
           add={this.addtaskHandler}
         ></InputTodo>
         <NotCompleted tasks={tasks}></NotCompleted>
+        <Completed tasks={tasks}></Completed>
       </div>
     );
   }

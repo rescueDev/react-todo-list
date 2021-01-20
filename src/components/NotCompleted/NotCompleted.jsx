@@ -1,31 +1,39 @@
-import React from 'react'
+import { FaCheck } from "react-icons/fa";
+import { BsFillTrashFill } from "react-icons/bs";
+import classes from './NotCompleted.module.css'
 
-function NotCompleted({tasks}) {
-    console.log(tasks);
+
+ const NotCompleted = ({tasks})  => {
+    // console.log(tasks);
 
     if(tasks.notCompleted.length < 1){
       return 'No pending tasks'
   }
  let todo = null;
  todo = (
-  <div>
+  <div className={classes.container} >
       {tasks.notCompleted.map((task, index) => {
           return (
-          <ul>
+          <div key={index} className={classes.notcompleted} >
 
-          <li key={index}>
+          <h4 >
               {task}
-                </li>
+                </h4>
+                <div className={classes.icons}>
 
-          </ul> 
+                    <FaCheck color='green' />
+                    <BsFillTrashFill />
+                </div>
+          </div> 
           )
       })}
   </div>
 )
     return (
-        <div>
+        
            <h3>{todo}</h3> 
-        </div>
+           
+       
     )
 }
 
