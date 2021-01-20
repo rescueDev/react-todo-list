@@ -1,5 +1,8 @@
 
-function Completed(tasks) {
+import {useState, useEffect} from 'react'
+
+function Completed({tasks}) {
+    const [completed, setCompleted] = useState(tasks.completed);
     return (
         <div>
             <h3></h3>

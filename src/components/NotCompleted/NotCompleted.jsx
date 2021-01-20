@@ -5,8 +5,11 @@ import classes from './NotCompleted.module.css'
 
 
  const NotCompleted = ({tasks})  => {
+     console.log(tasks.completed);
+     console.log(tasks.notCompleted);
 
     const [notCompleted, setNotCompleted] = useState(tasks.notCompleted)
+    const [checked, setChecked] = useState(tasks.completed);
     //console.log(notCompleted);
 
     useEffect(() => {
@@ -21,6 +24,32 @@ import classes from './NotCompleted.module.css'
         tasks.notCompleted.splice(index,1)
         
     }
+    useEffect(() => {
+       setChecked(tasks.completed);
+   }, [tasks.completed])
+
+    /* const checkCompleted = (task, index) =>{ 
+        var deleted = [...tasks.notCompleted];
+        deleted.splice(index,1);
+        setNotCompleted(deleted);
+        tasks.notCompleted.splice(index,1)
+        console.log('checked');
+
+        var checked = [...tasks.completed];
+        checked.push(task);
+        setNotCompleted(task);
+        tasks.completed.push(task)
+        console.log('checked');
+
+        
+        const item = [...checked];
+        const newTask = deleted;
+        item.push(newTask);
+        setChecked({ tasks: { completed: item } });
+        console.log(checked);
+        
+
+    } */
    // console.log(notCompleted);
 
     if(notCompleted.length < 1){
@@ -32,6 +61,7 @@ import classes from './NotCompleted.module.css'
  let todo = null;
  todo = (
   <div className={classes.container} >
+      Not Completed
       {notCompleted.map((task, index) => {
           return (
           <div key={index} className={classes.notcompleted} >

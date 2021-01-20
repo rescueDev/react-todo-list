@@ -1,12 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Completed from '../Completed/Completed'
 import NotCompleted from '../NotCompleted/NotCompleted'
 
-function AllTasks() {
+function AllTasks({setNotCompleted}) {
     return (
         <div>
-            <NotCompleted></NotCompleted>
-            <Completed></Completed>
+            <NotCompleted setNotCompleted={setNotCompleted}></NotCompleted>
+            <Completed ></Completed>
         </div>
     )
 }
