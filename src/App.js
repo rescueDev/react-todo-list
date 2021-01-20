@@ -27,11 +27,16 @@ class App extends Component {
       const {
         tasks: { completed, notCompleted },
       } = this.state;
+      console.log(notCompleted);
       //pushing task in notcompleted
       if (this.state.input !== "") {
-        notCompleted.push(this.state.input);
+        const task = [...notCompleted];
+        const newTask = this.state.input;
+        task.push(newTask);
+        this.setState({ tasks: { notCompleted: task } });
+        console.log(this.state.tasks.notCompleted);
       }
-      console.log(this.state.tasks.notCompleted);
+      console.log(notCompleted);
     }
   };
   render() {

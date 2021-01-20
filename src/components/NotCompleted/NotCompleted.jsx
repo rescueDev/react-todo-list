@@ -1,12 +1,29 @@
+import {useState, useEffect} from 'react';
 import { FaCheck } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 import classes from './NotCompleted.module.css'
 
 
  const NotCompleted = ({tasks})  => {
-    // console.log(tasks);
 
-    if(tasks.notCompleted.length < 1){
+    const [notCompleted, setNotCompleted] = useState(tasks.notCompleted)
+    //console.log(notCompleted);
+
+    useEffect(() => {
+       setNotCompleted(tasks.notCompleted);
+   }, [tasks.notCompleted])
+
+     const deleteTask = (index) => {
+        
+        var deleted = [...tasks.notCompleted];
+        deleted.splice(index,1);
+        setNotCompleted(deleted);
+        tasks.notCompleted.splice(index,1)
+        
+    }
+   // console.log(notCompleted);
+
+    if(notCompleted.length < 1){
       return (
           <div className={classes.notask}>
                 No pending tasks
@@ -15,7 +32,7 @@ import classes from './NotCompleted.module.css'
  let todo = null;
  todo = (
   <div className={classes.container} >
-      {tasks.notCompleted.map((task, index) => {
+      {notCompleted.map((task, index) => {
           return (
           <div key={index} className={classes.notcompleted} >
 
@@ -26,7 +43,7 @@ import classes from './NotCompleted.module.css'
                 <div className={classes.icons}>
 
                     <FaCheck color='green' />
-                    <BsFillTrashFill />
+                    <BsFillTrashFill onClick={() => deleteTask(index)}/>
                 </div>
           </div> 
           )
