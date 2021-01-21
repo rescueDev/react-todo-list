@@ -1,0 +1,28 @@
+.container {
+  width: 50%;
+  margin: 10px auto;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.notask {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.completed {
+  border: 1px solid black;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 8px;
+}
+
+.icons * {
+  margin-right: 10px;
+}
+
+.icons *:hover {
+  cursor: pointer;
+}
