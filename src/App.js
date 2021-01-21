@@ -19,6 +19,8 @@ const App = () => {
         <h1>Todo List {inputText}</h1>
       </header>
       <InputTodo setInputText={setInputText} />
+      <NotCompleted setNotCompleted={setNotCompleted} />
+      <Completed setCompleted={setCompleted} />
     </div>
   );
 };
