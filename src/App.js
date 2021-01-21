@@ -27,6 +27,8 @@ const App = () => {
       <NotCompleted
         notCompleted={notCompleted}
         setNotCompleted={setNotCompleted}
+        completed={completed}
+        setCompleted={setCompleted}
       />
       <Completed completed={completed} setCompleted={setCompleted} />
     </div>

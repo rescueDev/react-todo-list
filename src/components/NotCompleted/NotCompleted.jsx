@@ -4,12 +4,21 @@ import classes from './NotCompleted.module.css'
 import { FaCheck } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 
-const NotCompleted = ({notCompleted, setNotCompleted}) => {
+const NotCompleted = ({notCompleted, setNotCompleted, completed,setCompleted}) => {
     console.log(notCompleted);
-    const deleteTask = (id) => {
-        console.log('deleted');
+    const deleteTaskHandler = (id) => {
+        //filter list and returning all element that not matches given id
        const newList = notCompleted.filter((item) => item.id !== id);
        setNotCompleted(newList);
+    }
+
+    const completeTaskHandler = (id) => {
+         deleteTaskHandler(id);
+        console.log('completed task');
+        const completedList = notCompleted.filter((item) => item.id === id);
+        
+        setCompleted([...completed, completedList]);
+        console.log(completedList);
     }
 
     if (notCompleted.length < 1) {
@@ -34,8 +43,8 @@ let todo = null;
                 </h4>
                 <div className={classes.icons}>
 
-                    <FaCheck color='green' />
-                    <BsFillTrashFill onClick={() => deleteTask(task.id)}/>
+                    <FaCheck color='green' onClick={() => completeTaskHandler(task.id)}/>
+                    <BsFillTrashFill onClick={() => deleteTaskHandler(task.id)}/>
                 </div>
           </div> 
           )
