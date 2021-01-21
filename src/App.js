@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>Todo List</h1>
+        <h1>Todo List {inputText}</h1>
       </header>
       <InputTodo setInputText={setInputText} />
     </div>
