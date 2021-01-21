@@ -16,9 +16,14 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>Todo List {inputText}</h1>
+        <h1>Todo List</h1>
       </header>
-      <InputTodo setInputText={setInputText} />
+      <InputTodo
+        inputText={inputText}
+        setInputText={setInputText}
+        notCompleted={notCompleted}
+        setNotCompleted={setNotCompleted}
+      />
       <NotCompleted setNotCompleted={setNotCompleted} />
       <Completed setCompleted={setCompleted} />
     </div>

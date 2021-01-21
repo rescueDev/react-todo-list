@@ -1,7 +1,7 @@
 import classes from './InputTodo.module.css'
 
 
-const InputTodo = ({inputText, setInputText}) => {
+const InputTodo = ({inputText, setInputText, notCompleted, setNotCompleted}) => {
     //functions
     const inputTexthandler = (e) => {
         console.log(e.target.value);
@@ -9,8 +9,10 @@ const InputTodo = ({inputText, setInputText}) => {
     }
     const addOnEnterhandler = (e) => {
         if(e.charCode === 13) {
-
+            setInputText("");
             console.log('press enter');
+            setNotCompleted([...notCompleted, {text: inputText, completed:false, id: Math.floor(Math.random() * 10000)}])
+            console.log(notCompleted);
         }
     }
 
