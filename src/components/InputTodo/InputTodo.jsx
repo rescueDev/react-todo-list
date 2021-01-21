@@ -1,10 +1,16 @@
 import classes from './InputTodo.module.css'
 
 
-function InputTodo(props) {
+const InputTodo = ({setInputText}) => {
+    //functions
+    const inputTexthandler = (e) => {
+        //console.log(e.target.value);
+        setInputText(e.target.value);
+    }
+
     return (
         <div>
-            <input className={classes.input} type="text" value={props.value} onChange={props.change} placeholder='Add Task' onKeyPress={props.add}/>
+            <input className={classes.input} type="text" value={inputTexthandler} onChange={inputTexthandler} placeholder='Add Task' />
         </div>
     )
 }
