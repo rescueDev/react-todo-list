@@ -16,6 +16,8 @@ const InputTodo = ({inputText, setInputText, notCompleted, setNotCompleted}) => 
         }
     }
 
+    
+
     return (
         <div>
             <input className={classes.input} type="text" value={inputText} onKeyPress={addOnEnterhandler} onChange={inputTexthandler} placeholder='Add Task' />

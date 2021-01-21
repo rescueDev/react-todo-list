@@ -24,8 +24,11 @@ const App = () => {
         notCompleted={notCompleted}
         setNotCompleted={setNotCompleted}
       />
-      <NotCompleted setNotCompleted={setNotCompleted} />
-      <Completed setCompleted={setCompleted} />
+      <NotCompleted
+        notCompleted={notCompleted}
+        setNotCompleted={setNotCompleted}
+      />
+      <Completed completed={completed} setCompleted={setCompleted} />
     </div>
   );
 };
