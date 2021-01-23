@@ -30,7 +30,6 @@ const Completed = ({completed, setCompleted}) =>{
                 </h4>
                 <div className={classes.icons}>
 
-                    <FaCheck color='green'/>
                     <BsFillTrashFill />
                 </div>
           </div> 
