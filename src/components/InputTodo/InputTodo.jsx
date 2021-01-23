@@ -10,7 +10,7 @@ const InputTodo = ({inputText, setInputText, notCompleted, setNotCompleted}) => 
     const addOnEnterhandler = (e) => {
         if(e.charCode === 13) {
             setInputText("");
-            console.log('press enter');
+            //console.log('press enter');
             setNotCompleted([...notCompleted, {text: inputText, completed:false, id: Math.floor(Math.random() * 10000)}])
             console.log(notCompleted);
         }
