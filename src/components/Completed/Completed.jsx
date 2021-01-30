@@ -1,25 +1,22 @@
 import React from "react";
 import classes from "./Completed.module.css";
-import { FaCheck } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 
 const Completed = ({ completed, setCompleted }) => {
-  console.log(completed);
-  //functions
-  //destrucutre completed
-  /* var checked = [];
-
-   completed.forEach(element => {
-       element.forEach(item => {
-           checked.push(item);
-       })
-   }); */
   const deleteTaskHandler = (task, id) => {
     //filter list and returning all element that not matches given id
     var deleted = [...completed];
     deleted.splice(task, 1);
     setCompleted(deleted);
   };
+
+  if (!completed.length) {
+    return (
+      <div className={classes.empty}>
+        <h3>No completed tasks yet</h3>
+      </div>
+    );
+  }
 
   let todo = null;
   todo = (

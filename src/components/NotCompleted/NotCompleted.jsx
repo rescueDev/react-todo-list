@@ -1,5 +1,3 @@
-import React from "react";
-import InputTodo from "../InputTodo/InputTodo";
 import classes from "./NotCompleted.module.css";
 import { FaCheck } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -10,7 +8,6 @@ const NotCompleted = ({
   completed,
   setCompleted,
 }) => {
-  console.log(notCompleted);
   const deleteTaskHandler = (id) => {
     //filter list and returning all element that not matches given id
     const newList = notCompleted.filter((item) => item.id !== id);
@@ -19,15 +16,16 @@ const NotCompleted = ({
 
   const completeTaskHandler = (todo, id) => {
     deleteTaskHandler(id);
-    // console.log('completed task');
     /* const completedList = notCompleted.filter((item) => item.id === id);  */
+
+    todo.completed = true;
+
     setCompleted([...completed, todo]);
-    // console.log(completed);
   };
 
-  if (notCompleted.length < 1) {
+  if (!notCompleted.length) {
     return (
-      <div>
+      <div className={classes.empty}>
         <h3>No pending tasks</h3>
       </div>
     );
@@ -36,7 +34,7 @@ const NotCompleted = ({
   let todo = null;
   todo = (
     <div className={classes.container}>
-      Not Completed
+      Uncompleted
       {notCompleted.map((task) => {
         return (
           <div key={task.id} className={classes.notcompleted}>

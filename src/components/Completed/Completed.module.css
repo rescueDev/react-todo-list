@@ -26,3 +26,8 @@
 .icons *:hover {
   cursor: pointer;
 }
+
+.empty {
+  margin: 20px;
+  font-size: small;
+}
